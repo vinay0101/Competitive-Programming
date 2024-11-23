@@ -13,3 +13,16 @@ ll powMod(ll x, ll p, ll modulus){
     }
     return result;
 }
+
+int powMod(int a, ll b, int mod){
+    if(b == 0) return 1;
+    if(b%2 == 0){
+        //even 
+        int p = powMod(a, b/2, mod);
+        return 1LL * p * p % mod;
+    }
+    else{
+        int p = powMod(a, (b-1)/2, mod);
+        return 1LL * p * p % mod * a % mod;   
+    }
+}
